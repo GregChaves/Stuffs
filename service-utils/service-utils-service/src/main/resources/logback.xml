@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true">
+
+	<appender name="Porto_GENERAL"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- TODO - define the log path -->
+		<file>/appl/apps/apache-tomcat-7.0.77/logs/Porto-UserLogViewer-general.log
+		</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>/appl/apps/apache-tomcat-7.0.77/logs/Porto-UserLogViewer-general-%d{yyyyMMdd}%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>50MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>[%d] [%-5level] JOB[%X{JOBID}] TID[%X{TID}] -%c:%L -%msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="Porto_WEB"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- TODO - define the log path -->
+		<file>/appl/apps/apache-tomcat-7.0.77/logs/Porto-UserLogViewer-web.log
+		</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>/appl/apps/apache-tomcat-7.0.77/logs/Porto-UserLogViewer-web-%d{yyyyMMdd}%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>50MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>[%d] [%-5level] JOB[%X{JOBID}] TID[%X{TID}] -%c:%L -%msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} JOB[%X{JOBID}] %-5level
+				-%logger{200}:%line:%msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="com.everis.service" level="INFO">
+		<appender-ref ref="Porto_GENERAL" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="com.everis.service" level="INFO">
+		<appender-ref ref="Porto_WEB" />
+	</logger>
+	
+	<logger name="com.everis.service" level="DEBUG">
+		<appender-ref ref="PROCESSCONTROL_GENERAL" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+</configuration>

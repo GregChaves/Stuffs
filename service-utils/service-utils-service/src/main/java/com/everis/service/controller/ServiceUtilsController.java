@@ -21,9 +21,16 @@ public class ServiceUtilsController {
 	/** The Constant LOGGER. */
 	static final Logger LOGGER = LoggerFactory.getLogger(ServiceUtilsController.class);
 
+	/**
+	 * 
+	 */
 	@Autowired
 	private ServiceUtilsBusiness userLogViewerBusiness;
 	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = ServiceUtilsControllerConstant.GET_HELLO, method = RequestMethod.GET)
 	public MessageTO getHelloMsg() throws Exception {
 		
@@ -45,6 +52,10 @@ public class ServiceUtilsController {
 		return to;
 	}
 	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = ServiceUtilsControllerConstant.POST_HELLO, method = RequestMethod.POST)
 	public MessageTO getHelloMsgPost() throws Exception {
 		

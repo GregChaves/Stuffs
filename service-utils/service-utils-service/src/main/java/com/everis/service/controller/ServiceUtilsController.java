@@ -36,12 +36,11 @@ public class ServiceUtilsController {
 		try {
 		
 			userLogViewerBusiness.shuffleAndSendEmail();
+			to.setResult(msg);
 		
 		} catch (Exception e) {
 			to.setResult("Error sending e-mail");
 		}
-		
-		to.setResult(msg);
 		
 		return to;
 	}
@@ -58,12 +57,11 @@ public class ServiceUtilsController {
 		try {
 		
 			userLogViewerBusiness.shuffleAndSendEmail();
+			to.setResult(msg);
 		
 		} catch (Exception e) {
 			to.setResult("Error sending e-mail");
 		}
-		
-		to.setResult(msg);
 		
 		return to;
 	}

@@ -108,7 +108,7 @@ public class ServiceUtilsBusinessImpl implements ServiceUtilsBusiness {
 			LOGGER.info("The email was sent!!");
 
 		} catch (MessagingException e) {
-			LOGGER.error("Error senting the email!");
+			LOGGER.error("Error sending the email: " +e.getMessage());
 			isOK = false;
 		}
 		
